@@ -111,9 +111,9 @@ def main():
         RULES_FILE = 'rules.json'
         with open(RULES_FILE) as file:
             rules = json.load(file)
-            print(type(rules))
+            
             if len(rules)>=1:
-                print("dcadsa")
+                
                 apply_rules(rules)
     except FileNotFoundError as f:
         print("Could not find rules file")
