@@ -32,7 +32,7 @@ def apply_rules(rules):
             field_name = condition['field']
             predicate = condition['predicate']
             value = condition['value']
-            days = condition.get('days_older')
+            days = condition.get('days')
 
             if field_name == 'received_date_time':
                 if predicate == 'less than':
