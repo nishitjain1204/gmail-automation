@@ -74,7 +74,8 @@ The Gmail Automation Script is a powerful tool designed to automate various task
 -  **conditions** are filters to be applied to the mails available . Conditions have three parts `field`,`predicate`,`value`.
 	- `field` can have values (`from_email`,`subject`,`message`,`received_date` 
 	- `predicate` can have values (`contains`,`does not contain`,`equals`,`does not equal`)
-	- For string type fields - `contains`, `does not contain` and `equals`, `does not equal` - For date type field (Received) - `less than` / `greater than` for days / months.
+	- For string type fields - `contains`, `does not contain` and `equals`, `does not equal` - For date type field (Received) - `less than` / `greater than` for date comparison.
+	- If you want to comapare with `days` you have to add a new parameter `days` with an integer.  
 	- `value` is the string to be used for comparison
  -  **actions** is a dictionary of actions to be performed on the emails selected after applying the above conditions. 
 	 - Allowed keys are `move` and `mark`
