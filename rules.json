@@ -3,7 +3,7 @@
     {
       "conditions": [
         {
-          "field": "received_date",
+          "field": "received_date_time",
           "predicate": "equals",
           "value": "2023-06-15 19:40:53"
         }

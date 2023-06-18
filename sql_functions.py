@@ -14,12 +14,14 @@ from gmail_functions import (
 
 # SQLite database configuration
 DB_FILE = 'emails.db'
+
 # Store emails in the database
 conn = sqlite3.connect(DB_FILE)
 cursor = conn.cursor()
 
-# Create SQLite database table for emails
+
 def create_database():
+    # Create SQLite database table for emails
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS emails (
@@ -35,8 +37,9 @@ def create_database():
     conn.commit()
     conn.close()
 
-# Fetch emails from Gmail API and store them in the database
+
 def fetch_emails():
+    # Fetch emails from Gmail API and store them in the database
     
     email_list = get_messages()
     for email_data in email_list:
@@ -47,11 +50,11 @@ def fetch_emails():
                         email_data['message'], email_data['received_date'], email_data['is_read'],
                         email_data['is_processed']))
     conn.commit()
-    # conn.close()
+   
 
 def execute_query(query):
 
     q=cursor.execute(query)
     conn.commit()
     return [row[0] for row in cursor.fetchall()]
-    # conn.close()
+   
