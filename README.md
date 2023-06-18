@@ -80,7 +80,9 @@ The Gmail Automation Script is a powerful tool designed to automate various task
  -  **actions** is a dictionary of actions to be performed on the emails selected after applying the above conditions. 
 	 - Allowed keys are `move` and `mark`
 	 - `move` : mail can be moved to  
-		 `'INBOX', 'IMPORTANT', 'TRASH', 'SPAM', 'CATEGORY_FORUMS', 'CATEGORY_UPDATES', 'CATEGORY_PERSONAL', 'CATEGORY_PROMOTIONS', 'CATEGORY_SOCIAL', 'STARRED'
+		 ```
+		 'INBOX', 'IMPORTANT', 'TRASH', 'SPAM', 'CATEGORY_FORUMS', 'CATEGORY_UPDATES', 'CATEGORY_PERSONAL', 'CATEGORY_PROMOTIONS', 'CATEGORY_SOCIAL', 'STARRED'
+		 ```
 	 - `mark` : mail can be marked `read` and `unread`
 
 5. After creating the rules file run the script using
