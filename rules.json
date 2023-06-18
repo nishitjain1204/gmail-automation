@@ -1,0 +1,18 @@
+[
+   
+    {
+      "conditions": [
+        {
+          "field": "received_date",
+          "predicate": "less than",
+          "value": 7
+        }
+      ],
+      "actions": [
+        {"move":"INBOX"},
+        {"mark":"unread"}
+      ],
+      "predicate": "All"
+    }
+  ]
+  
