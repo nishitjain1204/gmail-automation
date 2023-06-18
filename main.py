@@ -32,12 +32,19 @@ def apply_rules(rules):
             field_name = condition['field']
             predicate = condition['predicate']
             value = condition['value']
+            days = condition.get('days_older')
 
-            if field_name == 'received_date':
+            if field_name == 'received_date_time':
                 if predicate == 'less than':
-                    condition_sql.append('''received_date < DATE('now', '-{}  days');'''.format(str(value)))
+                    if days:
+                        condition_sql.append('''received_date < DATE('now', '-{}  days');'''.format(str(days)))
+                    else :
+                        condition_sql.append('''received_date < DATE({});'''.format(str(value)))
                 elif predicate == 'greater than':
-                    condition_sql.append('''received_date > DATE('now', '-{} days');'''.format(str(value)))
+                    if days:
+                        condition_sql.append('''received_date > DATE('now', '-{}  days');'''.format(str(value)))
+                    else :
+                        condition_sql.append('''received_date > DATE({});'''.format(str(value)))
                 elif predicate == 'equals':
                     condition_sql.append(''' received_date = '{}' '''.format(str(value)))
             else:
@@ -54,7 +61,6 @@ def apply_rules(rules):
                     condition_sql.append('''{field} != {value}'''.format(field=field_name,value=value))
 
         predicate = rule['predicate']
-        
         
         if predicate == 'All':
             join_operator = ' AND '
