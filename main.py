@@ -1,8 +1,4 @@
-import os
 import json
-import sqlite3
-# import base64
-import datetime
 
 from gmail_functions import (
     
@@ -10,7 +6,6 @@ from gmail_functions import (
     mark_email_as_read,
     move_email_to_folder,
     get_valid_folders,
-    get_messages
 )
 
 from sql_functions import (
@@ -19,26 +14,16 @@ from sql_functions import (
     fetch_emails
 )
 
-
-
-
 valid_folders = get_valid_folders()
-
-
-
-
 
 def apply_rules(rules):
     
     # Apply rules and perform actions on emails
-    
-
     for rule in rules:
        
         conditions = rule['conditions']
         actions = rule['actions']
         
-
         # Construct SQL query for conditions
         condition_sql = []
        
@@ -51,11 +36,10 @@ def apply_rules(rules):
             if field_name == 'received_date':
                 if predicate == 'less than':
                     condition_sql.append('''received_date < DATE('now', '-{}  days');'''.format(str(value)))
-                    # condition_values.append(datetime.date.today())
                 elif predicate == 'greater than':
                     condition_sql.append('''received_date > DATE('now', '-{} days');'''.format(str(value)))
                 elif predicate == 'equals':
-                    condition_sql.append(''' received_date = {}'''.format(str(value)))
+                    condition_sql.append(''' received_date = '{}' '''.format(str(value)))
             else:
                 if predicate == 'contains':
                     condition_sql.append(''' {field} LIKE '%{value}%' '''.format(field=field_name,value=value))
@@ -127,7 +111,9 @@ def main():
         RULES_FILE = 'rules.json'
         with open(RULES_FILE) as file:
             rules = json.load(file)
-            if len(rules)>1:
+            print(type(rules))
+            if len(rules)>=1:
+                print("dcadsa")
                 apply_rules(rules)
     except FileNotFoundError as f:
         print("Could not find rules file")

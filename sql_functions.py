@@ -38,8 +38,6 @@ def create_database():
 # Fetch emails from Gmail API and store them in the database
 def fetch_emails():
     
-    
-    
     email_list = get_messages()
     for email_data in email_list:
         cursor.execute('''INSERT OR REPLACE INTO emails
@@ -52,7 +50,7 @@ def fetch_emails():
     # conn.close()
 
 def execute_query(query):
-    print(query)
+
     q=cursor.execute(query)
     conn.commit()
     return [row[0] for row in cursor.fetchall()]

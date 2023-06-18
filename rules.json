@@ -4,14 +4,15 @@
       "conditions": [
         {
           "field": "received_date",
-          "predicate": "less than",
-          "value": 7
+          "predicate": "equals",
+          "value": "2023-06-15 19:40:53"
         }
+        
       ],
-      "actions": [
-        {"move":"INBOX"},
-        {"mark":"unread"}
-      ],
+      "actions": 
+        {"move":"TRASH",
+        "mark":"unread"}
+      ,
       "predicate": "All"
     }
   ]

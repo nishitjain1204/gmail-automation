@@ -86,3 +86,11 @@ The Gmail Automation Script is a powerful tool designed to automate various task
         ```
         python3 main.py
         ```
+
+6. Problems with the implementation
+   - Can't move to drafts and sent due to the SDK issues
+
+7. Future improvements
+   - Add a logging system which generates a log of the actions performed
+   - Create a validator for validating the rules file.
+   - Create a separate rules builder to build the rules
